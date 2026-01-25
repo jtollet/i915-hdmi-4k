@@ -24,8 +24,6 @@ All patch versions grouped by origin.
 - `/patches/local-archives/i915-fix-linear-tiling.patch`
 
 ## patches/remote
-- `/patches/remote/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch`
-- `/patches/remote/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch`
 - `/patches/remote/test1_delay_before_buf_enable.patch`
 - `/patches/remote/test2_delay_before_power_up_lanes.patch`
 - `/patches/remote/test3_delay_after_signal_levels.patch`
@@ -34,10 +32,6 @@ All patch versions grouped by origin.
 - `/patches/remote/v2-hdmi-scdc-timing-delay.patch`
 
 ## patches/remote-archive
-- `/patches/remote-archive/0001-drm-i915-fix-4k60hz-hdmi.patch`
-- `/patches/remote-archive/combined_4k_fix.patch`
-- `/patches/remote-archive/fix_4k_format.patch`
-- `/patches/remote-archive/i915-fix-linear-tiling.patch`
 
 ## patches/remote-linux
 - `/patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch`
