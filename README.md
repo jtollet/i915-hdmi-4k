@@ -17,6 +17,23 @@ converging on a minimal fix:
 
 See the patch index and docs for full details and test results.
 
+## Patch list (by date)
+| Date | Patch | Comment |
+|---|---|---|
+2025-12-30 09:12 | `patches/local-archives/0001-drm-i915-hdmi-Add-timing-delays-for-SCDC-scrambling.patch` | Timing-related patch |
+2025-12-30 10:10 | `patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch` | Fixed SCDC timing delays (100ms/150ms) |
+2026-01-07 10:18 | `patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch` | Poll SCDC status (200 ms) |
+2026-01-07 10:18 | `patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch` | Poll SCDC status (300 ms) |
+2026-01-08 09:54 | `patches/local-root/v2-0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-Status.patch` | Poll SCDC status (200 ms) |
+2026-01-25 12:57 | `patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch` | Poll SCDC status (200 ms, linux-src) |
+2026-01-25 12:57 | `patches/remote-linux/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch` | Debug for scrambling polling |
+2026-01-25 12:57 | `patches/remote/test1_delay_before_buf_enable.patch` | Test: delay before buf enable |
+2026-01-25 12:57 | `patches/remote/test2_delay_before_power_up_lanes.patch` | Test: delay before power up lanes |
+2026-01-25 12:57 | `patches/remote/test3_delay_after_signal_levels.patch` | Test: delay after signal levels |
+2026-01-25 12:57 | `patches/remote/test4_delay_after_buffer_prep.patch` | Test: delay after buffer prep |
+2026-01-25 12:57 | `patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch` | Delay after SCDC config (v2) |
+2026-01-25 12:57 | `patches/remote/v2-hdmi-scdc-timing-delay.patch` | SCDC timing delay (short form) |
+
 ## Repo layout
 - patches/ : all patch versions grouped by source
 - docs/    : local and remote docs, plus references and mail links
