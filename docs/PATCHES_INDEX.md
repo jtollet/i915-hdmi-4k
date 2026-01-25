@@ -21,7 +21,6 @@ All patch versions grouped by origin.
 - `/patches/remote/test3_delay_after_signal_levels.patch`
 - `/patches/remote/test4_delay_after_buffer_prep.patch`
 - `/patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch`
-- `/patches/remote/v2-hdmi-scdc-timing-delay.patch`
 
 ## patches/remote-archive
 

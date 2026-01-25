@@ -3,7 +3,6 @@
 | Size (bytes) | Path |
 |---:|---|
 | 1187 | `patches/remote-linux/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch` |
-| 1215 | `patches/remote/v2-hdmi-scdc-timing-delay.patch` |
 | 1855 | `patches/remote/test1_delay_before_buf_enable.patch` |
 | 1864 | `patches/remote/test2_delay_before_power_up_lanes.patch` |
 | 1905 | `patches/remote/test3_delay_after_signal_levels.patch` |
