@@ -14,6 +14,5 @@ Documents grouped by origin.
 - `/docs/remote/CRITICAL_FINDING.md`
 - `/docs/remote/reply-to-ville-clean.txt`
 - `/docs/remote/SCDC_TIMING_ANALYSIS.md`
-- `/docs/remote/SUMMARY_COMPLETE.md`
 - `/docs/remote/TEST_VILLE_FEEDBACK.md`
 
