@@ -22,7 +22,6 @@ See the patch index and docs for full details and test results.
 |---|---|---|
 | 2025-12-30 10:10 | [patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch](./patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch) | Fixed SCDC timing delays (100ms/150ms) |
 | 2026-01-07 10:18 | [patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch](./patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch) | Poll SCDC status (200 ms) |
-| 2026-01-07 10:18 | [patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch](./patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch) | Poll SCDC status (300 ms) |
 | 2026-01-08 09:54 | [patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch](./patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch) | Poll SCDC status (200 ms, linux-src) |
 | 2026-01-25 12:57 | [patches/remote-linux/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch](./patches/remote-linux/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch) | Debug for scrambling polling |
 | 2026-01-25 12:57 | [patches/remote/test1_delay_before_buf_enable.patch](./patches/remote/test1_delay_before_buf_enable.patch) | Test: delay before buf enable |

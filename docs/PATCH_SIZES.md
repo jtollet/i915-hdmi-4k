@@ -9,6 +9,5 @@
 | 2148 | `patches/remote/test4_delay_after_buffer_prep.patch` |
 | 2550 | `patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch` |
 | 2593 | `patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch` |
-| 2950 | `patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch` |
 | 3197 | `patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch` |
 | 3839 | `patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch` |
