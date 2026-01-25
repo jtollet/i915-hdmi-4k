@@ -24,6 +24,5 @@ All patch versions grouped by origin.
 ## patches/remote-archive
 
 ## patches/remote-linux
-- `/patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch`
 - `/patches/remote-linux/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch`
 

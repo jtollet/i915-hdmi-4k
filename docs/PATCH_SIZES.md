@@ -12,4 +12,3 @@
 | 2950 | `patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch` |
 | 3197 | `patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch` |
 | 3839 | `patches/local-root/v2-0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-Status.patch` |
-| 3846 | `patches/remote-linux/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS_Scrambler_S.patch` |
