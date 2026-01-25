@@ -32,7 +32,6 @@ See the patch index and docs for full details and test results.
 2026-01-25 12:57 | [`patches/remote/test3_delay_after_signal_levels.patch`](patches/remote/test3_delay_after_signal_levels.patch) | Test: delay after signal levels |
 2026-01-25 12:57 | [`patches/remote/test4_delay_after_buffer_prep.patch`](patches/remote/test4_delay_after_buffer_prep.patch) | Test: delay after buffer prep |
 2026-01-25 12:57 | [`patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch`](patches/remote/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch) | Delay after SCDC config (v2) |
-2026-01-25 12:57 | [`patches/remote/v2-hdmi-scdc-timing-delay.patch`](patches/remote/v2-hdmi-scdc-timing-delay.patch) | SCDC timing delay (short form) |
 
 ## Repo layout
 - patches/ : all patch versions grouped by source
