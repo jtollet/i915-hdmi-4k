@@ -1,0 +1,112 @@
+================================================================================
+SUMMARY OF ALL FILES FOR ANKIT NAUTIYAL
+GitLab Issue #6868 - HDMI 2.0 4K@60Hz Fix
+================================================================================
+
+Location: <host>:/home/<user>/devel/i915/
+
+## MAIN FILES TO SHARE WITH ANKIT
+
+### 1. GitLab Response (copy/paste)
+   GITLAB_RESPONSE_ANKIT_EN.md (2.5K)
+   - Complete response text in English
+   - Answers his timeout question: NO timeout
+   - Test summary and key findings
+   - Ready to paste into GitLab comment
+
+### 2. Detailed Logs (attach to GitLab)
+   a) detailed_logs_excerpt.txt (4.0K)
+      - Focused excerpt with SCDC polling timeline
+      - Shows DEBUG messages with analysis
+      - Context around the 201ms polling duration
+   
+   b) dmesg_scdc_polling_only.txt (82K)
+      - Complete kernel boot log
+      - Full i915 initialization sequence
+      - All debug messages from boot
+   
+   c) display_info_scdc_polling_only.txt (6.3K)
+      - Full /sys/kernel/debug/dri/1/i915_display_info
+      - Confirms 3840x2160@60Hz active
+      - Complete display configuration
+
+## SUPPORTING DOCUMENTATION
+
+### 3. Posting Instructions
+   POSTING_GUIDE.txt (2.7K)
+   - Step-by-step guide to post on GitLab
+   - File download commands
+   - Verification checklist
+
+### 4. Test Report
+   TEST_RESULTS_SCDC_POLLING.md (2.2K)
+   - Detailed test report
+   - Hardware configuration
+   - Conclusions
+
+### 5. Quick Reference
+   scdc_debug_extract.txt (519 bytes)
+   - Minimal excerpt with just DEBUG timing
+   - Quick reference
+
+### 6. This File
+   FILES_SUMMARY_EN.txt
+   - Complete file inventory
+
+## KEY INFORMATION TO SHARE
+
+### Test Configuration:
+- Hardware: Intel Alder Lake-N N100 (0x46d1)
+- Monitor: Cisco Desk Pro
+- Resolution: 3840x2160@60Hz (594 MHz)
+- Kernel: Linux 6.18.1
+- Patches: SCDC polling ONLY (no VC_PAYLOAD bit 8 workaround)
+
+### Critical Finding:
+Poll Duration: ~201.4 milliseconds
+Result: SUCCESS - No timeout
+Display: Fully functional at 4K@60Hz
+
+### Timeline from Logs:
+[6.452101] DEBUG Poll for scrambling started
+[6.653498] DEBUG Poll for scrambling finished
+
+### Conclusion:
+✅ SCDC polling patch alone is sufficient
+✅ No additional workarounds needed
+✅ VC_PAYLOAD bit 8 patch is NOT required
+✅ Ankit's solution is the correct fix
+
+## DOWNLOAD COMMANDS
+
+From your local machine:
+  scp <host>:~/devel/i915/GITLAB_RESPONSE_ANKIT_EN.md .
+  scp <host>:~/devel/i915/detailed_logs_excerpt.txt .
+  scp <host>:~/devel/i915/dmesg_scdc_polling_only.txt .
+  scp <host>:~/devel/i915/display_info_scdc_polling_only.txt .
+  scp <host>:~/devel/i915/POSTING_GUIDE.txt .
+
+## VERIFICATION
+
+All logs were captured with:
+✅ Clean Linux 6.18.1 vanilla base
+✅ SCDC polling patch only (e75650310)
+✅ Ankit's debug printk patch
+❌ NO VC_PAYLOAD bit 8 patch
+❌ NO old msleep patches
+
+Git history at capture time:
+  e75650310 drm/i915/hdmi: Poll for 200 msec for TMDS_Scrambler_Status
+  25442251c Linux 6.18.1
+
+## NEXT STEPS
+
+1. Post response on GitLab with attached logs
+2. Send patch to intel-xe@lists.freedesktop.org
+   (display code shared between i915 and xe)
+
+================================================================================
+Generated: 2026-01-07
+System: <host>
+User: jerome
+================================================================================

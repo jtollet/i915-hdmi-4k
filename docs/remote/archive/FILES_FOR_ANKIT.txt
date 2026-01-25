@@ -1,0 +1,58 @@
+================================================================================
+FILES FOR ANKIT NAUTIYAL - GitLab Issue #6868
+================================================================================
+
+Location: <host>:~/devel/i915/
+
+Files to Attach to GitLab:
+--------------------------
+
+1. GITLAB_RESPONSE_ANKIT.md (4.2K)
+   - Complete response text for GitLab comment
+   - Summary of test results
+   - Answer to timeout question
+   - Key findings
+
+2. detailed_logs_excerpt.txt (3.2K)
+   - Focused excerpt showing SCDC polling
+   - Timeline analysis
+   - Context around DEBUG messages
+
+3. dmesg_scdc_polling_only.txt (82K)
+   - Complete kernel log from boot
+   - Full i915 initialization sequence
+   - All debug messages
+
+4. display_info_scdc_polling_only.txt (6.3K)
+   - Complete /sys/kernel/debug/dri/1/i915_display_info
+   - Shows display configuration
+   - Confirms 3840x2160@60Hz active
+
+5. scdc_debug_extract.txt (519 bytes)
+   - Minimal excerpt with just DEBUG messages
+   - Quick reference
+
+6. TEST_RESULTS_SCDC_POLLING.md (2.2K)
+   - Detailed test report
+   - Configuration details
+   - Conclusions
+
+Key Information for Ankit:
+--------------------------
+
+✅ Poll Duration: ~201.4 milliseconds
+✅ No Timeout: Poll completed successfully
+✅ Display: 3840x2160@60Hz working perfectly
+✅ No additional workarounds needed (VC_PAYLOAD patch not required)
+
+Timeline:
+---------
+[6.452101] DEBUG Poll for scrambling started
+[6.653498] DEBUG Poll for scrambling finished
+
+Conclusion:
+-----------
+The SCDC polling patch is the correct and complete fix for the
+4K@60Hz HDMI 2.0 issue on Intel Alder Lake-N N100 with Cisco Desk Pro.
+
+================================================================================

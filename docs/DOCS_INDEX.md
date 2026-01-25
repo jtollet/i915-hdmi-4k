@@ -1,0 +1,106 @@
+# Docs index
+
+Documents grouped by origin.
+
+## docs/local
+- `/docs/local/archive`
+- `/docs/local/CRITICAL_FINDING.md`
+- `/docs/local/dmesg_complete_investigation.txt`
+- `/docs/local/documentation`
+- `/docs/local/README_ANKIT.md`
+- `/docs/local/README.md`
+- `/docs/local/RESPONSE_TO_ANKIT.md`
+- `/docs/local/RESUME_FINAL_PATCH.md`
+- `/docs/local/SCDC_TIMING_ANALYSIS.md`
+
+## docs/local/documentation
+- `/docs/local/documentation/GUIDE_SOUMISSION_PATCH_SIMPLIFIE.md`
+- `/docs/local/documentation/PROJET_TERMINE.md`
+- `/docs/local/documentation/RESULTATS_TESTS_FINAUX.md`
+- `/docs/local/documentation/SOLUTION_FINAL.md`
+
+## docs/local/archive
+- `/docs/local/archive/COMPLETE_INVESTIGATION.md`
+- `/docs/local/archive/detailed_logs_excerpt.txt`
+- `/docs/local/archive/display_info_scdc_polling_only.txt`
+- `/docs/local/archive/dmesg_scdc_polling_only.txt`
+- `/docs/local/archive/dmesg_with_drm_debug.txt`
+- `/docs/local/archive/DPMS_EXPLANATION.md`
+- `/docs/local/archive/FILES_FOR_ANKIT.txt`
+- `/docs/local/archive/FILES_SUMMARY_EN.txt`
+- `/docs/local/archive/FINAL_ANSWER.txt`
+- `/docs/local/archive/FINAL_SUMMARY.txt`
+- `/docs/local/archive/GITLAB_COMMENT_V2.md`
+- `/docs/local/archive/GITLAB_COMMENT.md`
+- `/docs/local/archive/GITLAB_MR.md`
+- `/docs/local/archive/GITLAB_RESPONSE_ANKIT_EN_v2.md`
+- `/docs/local/archive/GITLAB_RESPONSE_ANKIT_EN_v3.md`
+- `/docs/local/archive/GITLAB_RESPONSE_ANKIT_EN.md`
+- `/docs/local/archive/GITLAB_RESPONSE_ANKIT.md`
+- `/docs/local/archive/HOW_TO_VERIFY_WITH_DEBUG.txt`
+- `/docs/local/archive/INVESTIGATION_FINDINGS.md`
+- `/docs/local/archive/INVESTIGATION_REPORT.md`
+- `/docs/local/archive/MAJOR_DISCOVERY_500MS.md`
+- `/docs/local/archive/PATCH_READY.md`
+- `/docs/local/archive/PATCHES_PRETS_SOUMISSION.md`
+- `/docs/local/archive/POSTING_GUIDE.txt`
+- `/docs/local/archive/register_differences.txt`
+- `/docs/local/archive/registers_i915_broken.txt`
+- `/docs/local/archive/registers_simpledrm_working.txt`
+- `/docs/local/archive/scdc_debug_extract.txt`
+- `/docs/local/archive/SOLUTION_EN.md`
+- `/docs/local/archive/SOLUTION.md`
+- `/docs/local/archive/SOUMISSION.md`
+- `/docs/local/archive/TEST_RESULTS_SCDC_POLLING.md`
+- `/docs/local/archive/TIMEOUT_CLARIFICATION.txt`
+
+## docs/remote
+- `/docs/remote/archive`
+- `/docs/remote/CRITICAL_FINDING.md`
+- `/docs/remote/CURRENT_TEST_STATUS.txt`
+- `/docs/remote/dmesg_complete_investigation.txt`
+- `/docs/remote/EMAILS_SENT.md`
+- `/docs/remote/FINAL_TEST_RESULTS.md`
+- `/docs/remote/PATCH_STATUS.md`
+- `/docs/remote/README_ANKIT.md`
+- `/docs/remote/reply-to-ville-clean.txt`
+- `/docs/remote/RESPONSE_TO_ANKIT.md`
+- `/docs/remote/RESPONSE_TO_VILLE.txt`
+- `/docs/remote/SCDC_TIMING_ANALYSIS.md`
+- `/docs/remote/SUMMARY_COMPLETE.md`
+- `/docs/remote/TEST_VILLE_FEEDBACK.md`
+
+## docs/remote/archive
+- `/docs/remote/archive/COMPLETE_INVESTIGATION.md`
+- `/docs/remote/archive/detailed_logs_excerpt.txt`
+- `/docs/remote/archive/display_info_scdc_polling_only.txt`
+- `/docs/remote/archive/dmesg_scdc_polling_only.txt`
+- `/docs/remote/archive/dmesg_with_drm_debug.txt`
+- `/docs/remote/archive/DPMS_EXPLANATION.md`
+- `/docs/remote/archive/FILES_FOR_ANKIT.txt`
+- `/docs/remote/archive/FILES_SUMMARY_EN.txt`
+- `/docs/remote/archive/FINAL_ANSWER.txt`
+- `/docs/remote/archive/FINAL_SUMMARY.txt`
+- `/docs/remote/archive/GITLAB_COMMENT_V2.md`
+- `/docs/remote/archive/GITLAB_COMMENT.md`
+- `/docs/remote/archive/GITLAB_MR.md`
+- `/docs/remote/archive/GITLAB_RESPONSE_ANKIT_EN_v2.md`
+- `/docs/remote/archive/GITLAB_RESPONSE_ANKIT_EN_v3.md`
+- `/docs/remote/archive/GITLAB_RESPONSE_ANKIT_EN.md`
+- `/docs/remote/archive/GITLAB_RESPONSE_ANKIT.md`
+- `/docs/remote/archive/HOW_TO_VERIFY_WITH_DEBUG.txt`
+- `/docs/remote/archive/INVESTIGATION_FINDINGS.md`
+- `/docs/remote/archive/INVESTIGATION_REPORT.md`
+- `/docs/remote/archive/MAJOR_DISCOVERY_500MS.md`
+- `/docs/remote/archive/PATCH_READY.md`
+- `/docs/remote/archive/POSTING_GUIDE.txt`
+- `/docs/remote/archive/register_differences.txt`
+- `/docs/remote/archive/registers_i915_broken.txt`
+- `/docs/remote/archive/registers_simpledrm_working.txt`
+- `/docs/remote/archive/scdc_debug_extract.txt`
+- `/docs/remote/archive/SOLUTION_EN.md`
+- `/docs/remote/archive/SOLUTION.md`
+- `/docs/remote/archive/SOUMISSION.md`
+- `/docs/remote/archive/TEST_RESULTS_SCDC_POLLING.md`
+- `/docs/remote/archive/TIMEOUT_CLARIFICATION.txt`
+
