@@ -14,14 +14,7 @@ All patch versions grouped by origin.
 - `/patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch`
 
 ## patches/local-archives
-- `/patches/local-archives/0000-cover-letter.patch`
-- `/patches/local-archives/0001-drm-i915-fix-4k60hz-hdmi.patch`
 - `/patches/local-archives/0001-drm-i915-hdmi-Add-timing-delays-for-SCDC-scrambling.patch`
-- `/patches/local-archives/0002-drm-i915-hdmi-Apply-VC-Payload-workaround-for-HDMI.patch`
-- `/patches/local-archives/0003-drm-i915-skl-Fix-LINEAR-tiling-initialization.patch`
-- `/patches/local-archives/combined_4k_fix.patch`
-- `/patches/local-archives/fix_4k_format.patch`
-- `/patches/local-archives/i915-fix-linear-tiling.patch`
 
 ## patches/remote
 - `/patches/remote/test1_delay_before_buf_enable.patch`

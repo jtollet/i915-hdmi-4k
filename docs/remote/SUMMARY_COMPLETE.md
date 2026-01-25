@@ -33,7 +33,6 @@ la fonction  :
 
 ### Emplacement Choisi
 
-
 ### Justification du Placement
 
 1. **Clarté du code** : Évident que le délai est lié à la config SCDC
@@ -42,7 +41,6 @@ la fonction  :
 4. **Architecture** : Suit le principe delay after operation that requires it
 
 ### Fichier Créé
-
 
 ## Documents Générés
 

@@ -86,11 +86,9 @@ The monitor's scrambling hardware works correctly and quickly, but its SCDC stat
 
 ## Important Confirmation
 
-I previously had a workaround patch that set the `TRANS_DDI_DP_VC_PAYLOAD_ALLOC` bit (bit 8) for high bandwidth HDMI modes.
-
 **I removed that patch entirely for this test**, and your SCDC polling patch alone fixes the issue completely. This confirms:
 - ✅ The root cause was the missing SCDC polling delay
-- ✅ The VC_PAYLOAD bit workaround is NOT needed
+
 - ✅ Your patch is the correct and complete fix
 
 ## Recommendations for Timeout Value

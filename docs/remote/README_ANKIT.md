@@ -68,7 +68,7 @@ Cisco Desk Pro has:
 - ❌ Non-compliant SCDC firmware (>200ms, actual 217-284ms)
 
 ### 4. NO OTHER PATCHES NEEDED ✅
-- VC_PAYLOAD bit workaround is NOT required
+
 - SCDC polling alone fixes the issue completely
 
 ## 📊 Test Results Summary
