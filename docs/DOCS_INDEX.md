@@ -13,7 +13,6 @@ Documents grouped by origin.
 ## docs/remote
 - `/docs/remote/CRITICAL_FINDING.md`
 - `/docs/remote/reply-to-ville-clean.txt`
-- `/docs/remote/RESPONSE_TO_ANKIT.md`
 - `/docs/remote/RESPONSE_TO_VILLE.txt`
 - `/docs/remote/SCDC_TIMING_ANALYSIS.md`
 - `/docs/remote/SUMMARY_COMPLETE.md`
