@@ -3,7 +3,6 @@
 All patch versions grouped by origin.
 
 ## patches/local-root
-- `/patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch`
 
 ## patches/local-patches-dir
 
