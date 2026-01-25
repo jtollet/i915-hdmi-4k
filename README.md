@@ -21,9 +21,13 @@ See the patch index and docs for full details and test results.
 - patches/ : all patch versions grouped by source
 - docs/    : local and remote docs, plus references and mail links
 
-## References
+## Indexes
 - docs/PATCHES_INDEX.md
+- docs/DOCS_INDEX.md
+- docs/PATCH_SIZES.md
 - docs/MAILS.md
+
+## References
 - https://gitlab.freedesktop.org/drm/xe/kernel/-/issues/6868
 - https://patchwork.freedesktop.org/series/160028/
 - https://lore.kernel.org/dri-devel/20251230091037.5603-1-jerome.tollet@gmail.com/
