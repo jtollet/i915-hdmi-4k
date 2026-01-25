@@ -8,7 +8,6 @@ All patch versions grouped by origin.
 - `/patches/local-root/v2-0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-Status.patch`
 
 ## patches/local-patches-dir
-- `/patches/local-patches-dir/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch`
 
 ## patches/home-i915
 - `/patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch`
