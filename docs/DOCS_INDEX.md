@@ -5,7 +5,6 @@ Documents grouped by origin.
 ## docs/local
 - `/docs/local/CRITICAL_FINDING.md`
 - `/docs/local/documentation`
-- `/docs/local/README_ANKIT.md`
 - `/docs/local/RESPONSE_TO_ANKIT.md`
 - `/docs/local/RESUME_FINAL_PATCH.md`
 - `/docs/local/SCDC_TIMING_ANALYSIS.md`
