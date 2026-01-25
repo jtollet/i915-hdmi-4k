@@ -13,7 +13,6 @@ All patch versions grouped by origin.
 - `/patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch`
 
 ## patches/local-archives
-- `/patches/local-archives/0001-drm-i915-hdmi-Add-timing-delays-for-SCDC-scrambling.patch`
 
 ## patches/remote
 - `/patches/remote/test1_delay_before_buf_enable.patch`

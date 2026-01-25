@@ -20,7 +20,6 @@ See the patch index and docs for full details and test results.
 ## Patch list (by date)
 | Date | Patch | Comment |
 |---|---|---|
-2025-12-30 09:12 | [`patches/local-archives/0001-drm-i915-hdmi-Add-timing-delays-for-SCDC-scrambling.patch`](patches/local-archives/0001-drm-i915-hdmi-Add-timing-delays-for-SCDC-scrambling.patch) | Timing-related patch |
 2025-12-30 10:10 | [`patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch`](patches/home-i915/0001-drm-i915-hdmi-Fix-4K-60Hz-HDMI-display-with-SCDC-timing.patch) | Fixed SCDC timing delays (100ms/150ms) |
 2026-01-07 10:18 | [`patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch`](patches/local-root/0001-drm-i915-hdmi-Poll-for-200-msec-for-TMDS-Scrambler-.patch) | Poll SCDC status (200 ms) |
 2026-01-07 10:18 | [`patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch`](patches/local-root/0001-drm-i915-hdmi-Poll-for-300-msec-for-TMDS-Scrambler-.patch) | Poll SCDC status (300 ms) |
