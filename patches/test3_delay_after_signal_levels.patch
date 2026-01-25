@@ -1,0 +1,52 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jerome Tollet <jerome.tollet@gmail.com>
+Date: Mon, 13 Jan 2025 17:50:00 +0100
+Subject: [PATCH] drm/i915/hdmi: Test 3 - Add delay after set_signal_levels()
+
+This is a test patch to investigate Ville's feedback about the timing
+of SCDC scrambling setup. This test adds a 150ms delay just after
+setting signal levels to determine if the scrambler needs time between
+signal configuration and subsequent PHY operations.
+
+Test sequence:
+1. Configure SCDC scrambling
+2. Prepare HDMI DDI buffers
+3. Enable D2D link
+4. Set signal levels
+5. **[150ms delay HERE]**
+6. Display WA #1143 (if applicable)
+7. Power up lanes
+8. Enable DDI buffer
+9. Poll for scrambling status
+
+If this test WORKS: The scrambler needs time between signal level setup
+and WA/lane operations.
+If this test FAILS: Move the delay earlier in the sequence (Test 4).
+
+Suggested-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
+Signed-off-by: Jerome Tollet <jerome.tollet@gmail.com>
+---
+ drivers/gpu/drm/i915/display/intel_ddi.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
+index 123456789abc..234567890bcd 100644
+--- a/drivers/gpu/drm/i915/display/intel_ddi.c
++++ b/drivers/gpu/drm/i915/display/intel_ddi.c
+@@ -3429,6 +3429,15 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 
+ 	encoder->set_signal_levels(encoder, crtc_state);
+ 
++	/* Test 3: Delay after signal level setup to allow scrambler stabilization */
++	if (crtc_state->hdmi_scrambling) {
++		drm_dbg_kms(display->drm,
++			    [CONNECTOR:%d:%s] Test 3: Adding 150ms delay after signal level setupn,
++			    connector->base.id, connector->name);
++		msleep(150);
++	}
++
+ 	/* Display WA #1143: skl,kbl,cfl */
+ 	if (DISPLAY_VER(display) == 9 && !display->platform.broxton) {
+ 		/*
+-- 
+2.43.0

@@ -1,0 +1,95 @@
+From 63c7e065a73e337a032929871f641f79b4cc904d Mon Sep 17 00:00:00 2001
+From: Jerome Tollet <jerome.tollet@gmail.com>
+Date: Tue, 6 Jan 2026 14:37:38 +0530
+Subject: [PATCH 1/2] drm/i915/hdmi: Poll for 200 msec for
+ TMDS_Scrambler_Status
+
+As per HDMI 2.0 specification, after scrambled video transmission begins,
+the source must poll the TMDS_Scrambler_Status bit until it reads 1 or
+until a timeout of 200 ms.
+
+Add a polling step after enabling the HDMI port to verify scrambling
+status, following the spec requirement.
+
+Without the wait for the scrambling bit to set, some HDMI 2.0 monitors fail
+to decode the signal at 4K@60Hz (594 MHz) when SCDC scrambling is not yet
+fully configured by the sink.
+
+v2:
+ - Instead of the fixed delay, poll for TMDS scramble status for 200 msec
+   as per the HDMI spec. (Ankit)
+
+Reported-by: Jerome Tollet <jerome.tollet@gmail.com>
+Closes: https://gitlab.freedesktop.org/drm/xe/kernel/-/issues/6868
+Link: https://lore.kernel.org/dri-devel/20251230091037.5603-1-jerome.tollet@gmail.com/
+Signed-off-by: Jerome Tollet <jerome.tollet@gmail.com>
+Signed-off-by: Ankit Nautiyal <ankit.k.nautiyal@intel.com>
+---
+ drivers/gpu/drm/i915/display/intel_ddi.c  |  2 ++
+ drivers/gpu/drm/i915/display/intel_hdmi.c | 25 +++++++++++++++++++++++
+ drivers/gpu/drm/i915/display/intel_hdmi.h |  2 ++
+ 3 files changed, 29 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
+index cb91d07cdaa6..c708b713f0e8 100644
+--- a/drivers/gpu/drm/i915/display/intel_ddi.c
++++ b/drivers/gpu/drm/i915/display/intel_ddi.c
+@@ -3506,6 +3506,8 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 	}
+
+ 	intel_ddi_buf_enable(encoder, buf_ctl);
++
++	intel_hdmi_poll_for_scrambling_enable(crtc_state, connector);
+ }
+
+ static void intel_ddi_enable(struct intel_atomic_state *state,
+diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
+index 055e68810d0d..958d939ae6ee 100644
+--- a/drivers/gpu/drm/i915/display/intel_hdmi.c
++++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
+@@ -2694,6 +2694,31 @@ intel_hdmi_add_properties(struct intel_hdmi *intel_hdmi, struct drm_connector *_
+ 	drm_connector_attach_max_bpc_property(&connector->base, 8, 12);
+ }
+
++/*
++ * As Per HDMI 2.0 spec: after scrambled video transmission begins,
++ * poll TMDS_Scrambler_Status until it reads 1, for up to 200 ms.
++ */
++void
++intel_hdmi_poll_for_scrambling_enable(const struct intel_crtc_state *crtc_state,
++				      struct drm_connector *_connector)
++{
++	struct intel_connector *connector = to_intel_connector(_connector);
++	struct intel_display *display = to_intel_display(crtc_state);
++	bool scrambling_enabled = false;
++	int ret;
++
++	if (!crtc_state->hdmi_scrambling)
++		return;
++
++	/* Poll for a max of 200 msec as per HDMI spec */
++	ret = poll_timeout_us(scrambling_enabled = drm_scdc_get_scrambling_status(&connector->base),
++			      scrambling_enabled, 1000, 200 * 1000, false);
++	if (ret)
++		drm_dbg_kms(display->drm,
++			    "[CONNECTOR:%d:%s] Timed out waiting for scrambling enable\n",
++			    connector->base.base.id, connector->base.name);
++}
++
+ /*
+  * intel_hdmi_handle_sink_scrambling: handle sink scrambling/clock ratio setup
+  * @encoder: intel_encoder
+diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.h b/drivers/gpu/drm/i915/display/intel_hdmi.h
+index be2fad57e4ad..0fa3661568e8 100644
+--- a/drivers/gpu/drm/i915/display/intel_hdmi.h
++++ b/drivers/gpu/drm/i915/display/intel_hdmi.h
+@@ -70,5 +70,7 @@ void hsw_read_infoframe(struct intel_encoder *encoder,
+ 			const struct intel_crtc_state *crtc_state,
+ 			unsigned int type,
+ 			void *frame, ssize_t len);
++void intel_hdmi_poll_for_scrambling_enable(const struct intel_crtc_state *crtc_state,
++					   struct drm_connector *_connector);
+
+ #endif /* __INTEL_HDMI_H__ */
+--
+2.45.2

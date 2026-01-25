@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jerome Tollet <jerome.tollet@gmail.com>
+Date: Mon, 13 Jan 2025 17:40:00 +0100
+Subject: [PATCH] drm/i915/hdmi: Test 1 - Add delay before intel_ddi_buf_enable()
+
+This is a test patch to investigate Ville's feedback about the timing
+of SCDC scrambling setup. This test adds a 150ms delay just before
+enabling the DDI buffer to determine if the scrambler needs time after
+signal level configuration but before buffer enable.
+
+Test sequence:
+1. Configure SCDC scrambling
+2. Prepare HDMI DDI buffers
+3. Enable D2D link
+4. Set signal levels
+5. Power up lanes
+6. **[150ms delay HERE]**
+7. Enable DDI buffer
+8. Poll for scrambling status
+
+If this test WORKS: The scrambler needs time between lane power-up and
+buffer enable.
+If this test FAILS: Move the delay earlier in the sequence (Test 2).
+
+Suggested-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
+Signed-off-by: Jerome Tollet <jerome.tollet@gmail.com>
+---
+ drivers/gpu/drm/i915/display/intel_ddi.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
+index 123456789abc..234567890bcd 100644
+--- a/drivers/gpu/drm/i915/display/intel_ddi.c
++++ b/drivers/gpu/drm/i915/display/intel_ddi.c
+@@ -3501,6 +3501,15 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 		buf_ctl |= DDI_BUF_CTL_TC_PHY_OWNERSHIP;
+ 	}
+ 
++	/* Test 1: Delay before buffer enable to allow scrambler stabilization */
++	if (crtc_state->hdmi_scrambling) {
++		drm_dbg_kms(display->drm,
++			    [CONNECTOR:%d:%s] Test 1: Adding 150ms delay before DDI buffer enablen,
++			    connector->base.id, connector->name);
++		msleep(150);
++	}
++
+ 	intel_ddi_buf_enable(encoder, buf_ctl);
+ 
+ 	intel_hdmi_poll_for_scrambling_enable(crtc_state, connector);
+-- 
+2.43.0

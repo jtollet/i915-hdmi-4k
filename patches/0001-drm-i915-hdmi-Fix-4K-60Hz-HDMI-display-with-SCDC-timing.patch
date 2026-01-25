@@ -1,0 +1,67 @@
+From: Jerome Tollet <jerome.tollet@gmail.com>
+Date: Mon, 30 Dec 2025 09:00:00 +0100
+Subject: [PATCH] drm/i915/hdmi: Fix 4K@60Hz HDMI display with SCDC timing delays
+
+Some HDMI 2.0 monitors fail to decode the signal at 4K@60Hz (594 MHz)
+when SCDC scrambling is configured too quickly. The monitor displays
+"format detection" error and never recovers, despite SCDC I2C
+transactions succeeding.
+
+Root cause: The SCDC disable/enable sequence happens too fast (~16ms),
+causing the monitor to lose sync during the transition. HDMI 2.0 spec
+section 10.4.1.7 states that the sink can disable scrambling if it
+doesn't detect a scrambled clock within 100ms.
+
+Solution: Add timing delays to allow the monitor to properly handle
+the SCDC configuration:
+- 100ms before SCDC configuration (let monitor stabilize)
+- 150ms after DDI enable (let monitor lock onto scrambled signal)
+
+Testing performed on:
+- Hardware: Intel Alder Lake-N N100 (Gen12.0, PCI ID 8086:46d1)
+- Monitor: Cisco Desk Pro (HDMI 2.0 capable)
+- Resolution: 3840x2160@60Hz via HDMI 2.0
+- Kernel: Linux 6.18.1
+- Test scenarios:
+  * Multiple reboots (stable across all tests)
+  * DPMS ON/OFF cycles (suspend/resume works correctly)
+
+Impact: Adds 250ms delay during boot, only when hdmi_scrambling is
+active (resolutions > 340 MHz). No impact on lower resolutions or
+runtime performance.
+
+Fixes display initialization on monitors sensitive to SCDC timing.
+
+Signed-off-by: Jerome Tollet <jerome.tollet@gmail.com>
+---
+ drivers/gpu/drm/i915/display/intel_ddi.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
+index abcdef123456..fedcba654321 100644
+--- a/drivers/gpu/drm/i915/display/intel_ddi.c
++++ b/drivers/gpu/drm/i915/display/intel_ddi.c
+@@ -3414,6 +3414,10 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 	enum port port = encoder->port;
+ 	u32 buf_ctl = 0;
+ 
++	/* Give monitor time to be ready before SCDC configuration */
++	if (crtc_state->hdmi_scrambling)
++		msleep(100);
++
+ 	if (!intel_hdmi_handle_sink_scrambling(encoder, connector,
+ 					       crtc_state->hdmi_high_tmds_clock_ratio,
+ 					       crtc_state->hdmi_scrambling))
+@@ -3502,6 +3506,10 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 	}
+ 
+ 	intel_ddi_buf_enable(encoder, buf_ctl);
++
++	/* Give monitor time to lock onto scrambled signal after DDI enable */
++	if (crtc_state->hdmi_scrambling)
++		msleep(150);
+ }
+ 
+ static void intel_ddi_enable(struct intel_atomic_state *state,
+--
+2.43.0

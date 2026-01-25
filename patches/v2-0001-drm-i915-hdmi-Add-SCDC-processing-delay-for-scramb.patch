@@ -1,0 +1,69 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jerome Tollet <jerome.tollet@gmail.com>
+Date: Tue, 14 Jan 2026 08:00:00 +0100
+Subject: [PATCH v2] drm/i915/hdmi: Add SCDC processing delay for scrambling
+ setup
+
+Some HDMI 2.0 monitors require additional time to process SCDC
+configuration before PHY initialization begins. Without this delay,
+certain monitors (e.g., Cisco Desk Pro) fail to detect the scrambled
+signal at 4K@60Hz and report format detection errors, despite
+successful SCDC I2C transactions.
+
+Testing with multiple delay positions in the modeset sequence revealed
+that the timing is not tied to any specific PHY/DDI operation. The
+monitor simply needs ~150ms after SCDC configuration to prepare its
+scrambling detection logic before subsequent operations begin.
+
+The delay is placed immediately after intel_hdmi_handle_sink_scrambling()
+to make the code intent clear: we're giving the monitor time to process
+SCDC configuration. This placement also allows subsequent PHY operations
+to benefit from the monitor's preparation time.
+
+The 150ms value was determined through systematic testing and aligns
+with HDMI 2.0 spec section 10.4.1.7, which mentions monitors can
+disable scrambling if they don't detect a scrambled signal within 100ms.
+Some monitors appear to need additional margin for SCDC processing.
+
+Changes in v2:
+- Moved delay to immediately after SCDC configuration (was at end of
+  modeset sequence in v1)
+- Added detailed testing results showing delay works at any position
+- Improved comment explaining the root cause and placement rationale
+- Based on feedback from Ville Syrjälä suggesting to identify the
+  exact operation requiring the delay
+
+Tested-by: Jerome Tollet <jerome.tollet@gmail.com>
+Suggested-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
+Signed-off-by: Jerome Tollet <jerome.tollet@gmail.com>
+---
+ drivers/gpu/drm/i915/display/intel_ddi.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
+index 3de3e9167..328884efa 100644
+--- a/drivers/gpu/drm/i915/display/intel_ddi.c
++++ b/drivers/gpu/drm/i915/display/intel_ddi.c
+@@ -3419,6 +3419,20 @@ static void intel_ddi_enable_hdmi(struct intel_atomic_state *state,
+ 		drm_dbg_kms(display->drm,
+ 			    [CONNECTOR:%d:%s] Failed to configure sink scrambling/TMDS bit clock ration,
+ 			    connector->base.id, connector->name);
++	/*
++	 * HDMI 2.0 spec section 10.4.1.7: Some monitors need time to process
++	 * the SCDC configuration before PHY initialization begins. Testing
++	 * shows the delay can be placed anywhere in the modeset sequence after
++	 * SCDC config, but placing it here (immediately after) makes the code
++	 * intent clear and allows subsequent PHY operations to benefit from
++	 * the monitor preparation time.
++	 *
++	 * Without this delay, certain monitors (e.g., Cisco Desk Pro) fail to
++	 * detect the scrambled signal and report format detection errors despite
++	 * proper SCDC configuration.
++	 */
++	if (crtc_state->hdmi_scrambling)
++		msleep(150);
+ 
+ 	if (has_buf_trans_select(display))
+ 		hsw_prepare_hdmi_ddi_buffers(encoder, crtc_state);
+-- 
+2.43.0
