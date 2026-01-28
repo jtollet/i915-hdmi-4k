@@ -6,6 +6,12 @@
 - https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371850.html
 - https://mail-archive.com/dri-devel@lists.freedesktop.org/msg584154.html
 
+## Community feedback on patches
+- https://mail-archive.com/dri-devel@lists.freedesktop.org/msg582211.html (Jani Nikula, 2025-12-30)
+- https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371959.html (Ankit Nautiyal RESEND, 2026-01-13)
+- https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371965.html (Ville Syrjälä, 2026-01-14)
+- https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372336.html (Ankit Nautiyal response, 2026-01-21)
+
 ## Lore thread
 - https://lore.kernel.org/dri-devel/20251230091037.5603-1-jerome.tollet@gmail.com/
 

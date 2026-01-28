@@ -29,6 +29,15 @@ See the patch index and docs for full details and test results.
 | 7 | 2026-01-06 18:47 | [patches/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch](./patches/0002-drm-i915-hdmi-Debug-for-scrambling-polling.patch) | Adds debug around SCDC polling; instrumentation only |
 | 8 | 2026-01-14 08:00 | [patches/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch](./patches/v2-0001-drm-i915-hdmi-Add-SCDC-processing-delay-for-scramb.patch) | 150ms delay immediately after SCDC config; v2 rationale + tests |
 
+## Community feedback
+| Date | Person | Topic | Link |
+|---|---|---|---|
+| 2025-12-30 | Jani Nikula | Request for GitLab issue + debug logs | [msg582211](https://mail-archive.com/dri-devel@lists.freedesktop.org/msg582211.html) |
+| 2026-01-06 | Ankit Nautiyal | SCDC polling patch proposal (200ms) | [GitLab #6868](https://gitlab.freedesktop.org/drm/xe/kernel/-/issues/6868) |
+| 2026-01-13 | Ankit Nautiyal | RESEND polling patch to intel-gfx | [msg371959](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371959.html) |
+| 2026-01-14 | Ville Syrjälä | Questions placement: move delay forward to find exact requirement | [msg371965](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371965.html) |
+| 2026-01-21 | Ankit Nautiyal | Response to Ville: all placements work; suggests panel-specific quirk? | [msg372336](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372336.html) |
+
 ## Repo layout
 - patches/ : all patch versions (consolidated)
 - docs/    : docs and reference links
