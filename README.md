@@ -8,12 +8,23 @@ Some HDMI 2.0 monitors fail to decode 4K@60Hz when SCDC scrambling is configured
 too quickly. The sink may drop sync during the SCDC transition even when I2C
 transactions succeed, leading to a persistent "format detection" error.
 
-## Solution summary
-Multiple patch variants were produced while validating the root cause and
-converging on a minimal fix:
-- Fixed delays before/after SCDC configuration and DDI enable
-- Polling TMDS_Scrambler_Status for up to 200 ms (HDMI 2.0 spec)
-- A focused SCDC processing delay immediately after sink scrambling config
+## Solution summary (UPDATED Feb 14, 2026)
+
+**RECOMMENDED SOLUTION: SCDC Polling Patch (Ankit Nautiyal)**
+
+Isolated testing on kernel 6.18.7 confirms:
+- ✅ **SCDC polling patch ALONE**: Works perfectly
+- ⚠️ **Delay patch (150ms)**: Works when properly placed, but placement-dependent
+- ⚠️ **Both patches together**: Works (but delay becomes redundant with polling)
+
+**Conclusion**: The generic SCDC polling approach (polling TMDS_Scrambler_Status
+for up to 200ms after port enable) is the preferred solution because it:
+- Aligns with HDMI 2.0 specification requirements
+- Matches Windows driver behavior
+- Provides a generic solution for all affected monitors
+- Is not placement-dependent like the fixed delay approach
+
+The fixed delay approach (v2 patch) can work but is less robust than polling.
 
 See the patch index and docs for full details and test results.
 
@@ -37,6 +48,9 @@ See the patch index and docs for full details and test results.
 | 2026-01-13 | Ankit Nautiyal | RESEND polling patch to intel-gfx | [msg371959](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371959.html) |
 | 2026-01-14 | Ville Syrjälä | Questions placement: move delay forward to find exact requirement | [msg371965](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg371965.html) |
 | 2026-01-21 | Ankit Nautiyal | Response to Ville: all placements work; suggests panel-specific quirk? | [msg372336](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372336.html) |
+| 2026-01-28 | Jerome Tollet | Follow-up asking for preferred approach (polling vs quirk vs delay) | [msg372765](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372765.html) |
+| 2026-02-09 | Jerome Tollet | Gentle ping summarizing three possible approaches | [msg373401](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373401.html) |
+| 2026-02-14 | Jerome Tollet | **Isolated testing confirms: SCDC polling alone is the solution** | _(pending archive)_ |
 
 ## Repo layout
 - patches/ : all patch versions (consolidated)

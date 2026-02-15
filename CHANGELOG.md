@@ -23,6 +23,24 @@ investigation.
 - v2 SCDC processing delay patch: move the delay immediately after SCDC
   configuration for clarity and maintainability, plus improved rationale.
 
+## 2026-01-21
+- Ankit Nautiyal suggests considering panel-specific quirk instead of generic
+  solution, given that all delay placements worked in testing.
+
+## 2026-01-28
+- Follow-up message asking maintainers for preferred approach: generic polling,
+  panel-specific quirk, or fixed delay.
+
+## 2026-02-09
+- Gentle ping after 10 days with summary of three possible approaches awaiting
+  maintainer feedback.
+
+## 2026-02-14
+- **Isolated testing on kernel 6.18.7 confirms: SCDC polling patch alone works
+  perfectly. Delay patch is placement-dependent and less robust.**
+- Conclusion: Generic SCDC polling (Ankit's patch) is the recommended solution
+  as it aligns with HDMI 2.0 spec and Windows behavior.
+
 ## Additional variants (archive)
 - Earlier combined fixes and experimental patches kept for reference in
   `patches/local-archives` and `patches/remote-archive`.
