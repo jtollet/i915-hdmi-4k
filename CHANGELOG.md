@@ -41,6 +41,24 @@ investigation.
 - Conclusion: Generic SCDC polling (Ankit's patch) is the recommended solution
   as it aligns with HDMI 2.0 spec and Windows behavior.
 
+## 2026-02-17
+- Ankit Nautiyal responds, requests to continue discussion in original thread
+  on lore.kernel.org instead of fragmenting across multiple threads.
+- Jerome acknowledges and posts update with Feb 14 isolated testing results
+  showing SCDC polling patch alone works perfectly.
+
+## 2026-02-20
+- Jerome confirms he will post final summary in the proper thread.
+
+## 2026-02-21
+- Final confirmation message sent to intel-gfx and dri-devel mailing lists with
+  isolated testing results (kernel 6.19.2) confirming SCDC polling patch works
+  perfectly (msg373961).
+
+## 2026-02-27
+- Gentle ping sent to intel-gfx, dri-devel, Ankit and Ville in reply to
+  Ankit's Jan 21 message thread as requested.
+
 ## Additional variants (archive)
 - Earlier combined fixes and experimental patches kept for reference in
   `patches/local-archives` and `patches/remote-archive`.

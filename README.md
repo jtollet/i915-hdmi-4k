@@ -50,7 +50,11 @@ See the patch index and docs for full details and test results.
 | 2026-01-21 | Ankit Nautiyal | Response to Ville: all placements work; suggests panel-specific quirk? | [msg372336](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372336.html) |
 | 2026-01-28 | Jerome Tollet | Follow-up asking for preferred approach (polling vs quirk vs delay) | [msg372765](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg372765.html) |
 | 2026-02-09 | Jerome Tollet | Gentle ping summarizing three possible approaches | [msg373401](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373401.html) |
-| 2026-02-14 | Jerome Tollet | **Isolated testing confirms: SCDC polling alone is the solution** | _(pending archive)_ |
+| 2026-02-17 | Jerome Tollet | Update with Feb 14 isolated testing results | [msg373729](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373729.html) |
+| 2026-02-17 | Ankit Nautiyal | Request to continue discussion in original lore.kernel.org thread | [msg373719](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373719.html) |
+| 2026-02-20 | Jerome Tollet | Acknowledgment to post in proper thread | [msg373895](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373895.html) |
+| 2026-02-21 | Jerome Tollet | **Final confirmation: SCDC polling patch works perfectly** | [msg373961](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373961.html) |
+| 2026-02-27 | Jerome Tollet | Gentle ping to maintainers | _(pending archive)_ |
 
 ## Repo layout
 - patches/ : all patch versions (consolidated)
