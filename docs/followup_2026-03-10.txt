@@ -1,0 +1,21 @@
+From: Jerome Tollet <jerome.tollet@gmail.com>
+To: intel-gfx@lists.freedesktop.org
+Cc: dri-devel@lists.freedesktop.org, ankit.k.nautiyal@intel.com, ville.syrjala@linux.intel.com
+Subject: Re: [RESEND] drm/i915/hdmi: Poll for 200 msec for TMDS_Scrambler_Status
+In-Reply-To: <73e0de50-b7e3-4315-ab81-0a3ecebc2363@intel.com>
+References: <20260113143107.1446909-1-ankit.k.nautiyal@intel.com> <Z1MfXyv5_ORAVj3z@intel.com> <73e0de50-b7e3-4315-ab81-0a3ecebc2363@intel.com>
+
+Hi Ankit, Ville,
+
+Following up on this series.
+
+As previously reported, the SCDC polling patch fixes the 4K@60Hz HDMI
+issue on my Alder Lake-N (N100) + Cisco Desk Pro setup, and I have not
+seen regressions in my testing.
+
+Ankit mentioned the next step likely needs feedback from Ville. Ville,
+do you see any remaining concern with this approach, or anything else
+you would like me to test to help move the patch forward?
+
+Thanks,
+Jerome

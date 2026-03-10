@@ -55,6 +55,7 @@ See the patch index and docs for full details and test results.
 | 2026-02-20 | Jerome Tollet | Acknowledgment to post in proper thread | [msg373895](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373895.html) |
 | 2026-02-21 | Jerome Tollet | **Final confirmation: SCDC polling patch works perfectly** | [msg373961](https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373961.html) |
 | 2026-02-27 | Jerome Tollet | Gentle ping to maintainers | _(pending archive)_ |
+| 2026-03-10 | Jerome Tollet | Follow-up asking Ville for feedback on the polling approach | _(pending archive)_ |
 
 ## Repo layout
 - patches/ : all patch versions (consolidated)
