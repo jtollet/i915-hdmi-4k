@@ -19,6 +19,7 @@
 - https://mail-archive.com/intel-gfx@lists.freedesktop.org/msg373961.html (Jerome Tollet isolated testing results confirmation, 2026-02-21)
 - _(pending archive)_ Jerome Tollet gentle ping (2026-02-27, Message-ID: 20260227131638.33167-1-jerome.tollet@gmail.com)
 - _(pending archive)_ Jerome Tollet follow-up asking Ville for feedback (2026-03-10, Message-ID: 20260310204738.6387-1-jerome.tollet@gmail.com)
+- _(pending archive)_ Jerome Tollet follow-up in original thread (2026-03-26, Message-ID: 20260326054112.51287-1-jtollet@cisco.com)
 
 ## Lore thread
 - https://lore.kernel.org/dri-devel/20251230091037.5603-1-jerome.tollet@gmail.com/
